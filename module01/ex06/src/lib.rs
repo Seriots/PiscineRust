@@ -5,7 +5,6 @@ fn max(a: usize, b: usize) -> usize {
 		{b}
 }
 
-
 pub fn big_add(a: &[u8], b: &[u8]) -> Vec<u8> {
     let mut vec_a: Vec<u8> = Vec::new();
     let mut vec_b: Vec<u8> = Vec::new();
@@ -40,6 +39,16 @@ pub fn big_add(a: &[u8], b: &[u8]) -> Vec<u8> {
     if carry > 0 {
         result.push(carry + 48);
     }
+
+    for i in (1..result.len()).rev() {
+        println!("{}", result[i]);
+        if result[i] == 48 {
+            result.remove(i);
+        }
+        else {
+            break;
+        }
+    }
     result.reverse();
     return result;
 }
@@ -48,7 +57,9 @@ pub fn big_add(a: &[u8], b: &[u8]) -> Vec<u8> {
 #[test]
 fn test_big_add() {
     assert_eq!(big_add(b"123", b"321"), b"444");
+    assert_eq!(big_add(b"00000", b"0000000"), b"0");
     assert_eq!(big_add(b"999", b"1"), b"1000");
+    assert_eq!(big_add(b"0000999", b"0000001"), b"1000");
     assert_eq!(big_add(b"999", b"999"), b"1998");
     assert_eq!(big_add(b"1234567890", b"9876543210"), b"11111111100");
 }
