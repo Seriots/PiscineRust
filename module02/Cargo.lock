@@ -32,10 +32,16 @@ version = "0.1.0"
 [[package]]
 name = "ex06"
 version = "0.1.0"
+dependencies = [
+ "ftkit",
+]
 
 [[package]]
 name = "ex07"
 version = "0.1.0"
+dependencies = [
+ "ftkit",
+]
 
 [[package]]
 name = "ftkit"
