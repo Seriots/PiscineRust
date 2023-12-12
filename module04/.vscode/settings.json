@@ -1,0 +1,8 @@
+{
+	"rust-analyzer.linkedProjects": [
+		"./ex01/Cargo.toml",
+		"./ex01/Cargo.toml",
+		"./ex01/Cargo.toml"
+	],
+	"C_Cpp.intelliSenseEngineFallback": "disabled"
+}
