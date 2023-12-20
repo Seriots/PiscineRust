@@ -1,7 +1,6 @@
 use std::sync::{Mutex, Arc};
 use std::thread::spawn;
 use std::io::Write;
-use std::thread::JoinHandle;
 
 struct Logger<W> {
     buffer: Box<[u8]>,
@@ -60,7 +59,7 @@ fn main() {
 
     for i in 0..10 {
         let counter = Arc::clone(&counter);
-        let handle = std::thread::spawn(move || {
+        let handle = spawn(move || {
             let mut logger = Logger::new(40, std::io::stdout());
             let mut turn = 0;
             loop {
