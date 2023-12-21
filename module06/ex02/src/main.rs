@@ -27,7 +27,7 @@ fn main() {
 
     for i in 0..10 {
         let handle = std::thread::spawn(move || {
-            let error = Error::make_last(match i {
+            Error::make_last(match i {
                 0 => Error::FileNotFound,
                 1 => Error::IsDirectory,
                 2 => Error::WriteError,
